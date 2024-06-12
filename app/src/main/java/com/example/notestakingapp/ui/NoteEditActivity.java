@@ -47,6 +47,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.notestakingapp.firebase.FirebaseHandler;
 import com.example.notestakingapp.shared.Item;
 import com.example.notestakingapp.R;
 import com.example.notestakingapp.adapter.NoteDetailsAdapter;
@@ -356,7 +357,6 @@ public class NoteEditActivity extends AppCompatActivity {
             public void handleOnBackPressed() {
                 if (!deleteNoteIsEmpty(noteId)) {
                     titleText = NoteDetailsAdapter.title;
-
                     databaseHandler.updateNote(NoteEditActivity.this, noteId, titleText, noteColor);
                 }
                 finish();
@@ -406,19 +406,19 @@ public class NoteEditActivity extends AppCompatActivity {
         int name = item.getItemId();
         if (name == R.id.add_text_popup) {
             onAddText();
-            Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
         } else if (name == R.id.add_image_popup) {
             onOpenGallery();
-            Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
         } else if (name == R.id.add_camera_popup) {
             onOpenCamera();
-            Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
         } else if (name == R.id.add_draw_popup) {
             onOpenDraw();
-            Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
         } else if (name == R.id.add_voice_popup) {
             opOpenVoice();
-            Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
         }
 
         return true;
@@ -576,6 +576,7 @@ public class NoteEditActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        FirebaseHandler.syncToFirebase(this);
         titleText = NoteDetailsAdapter.title;
         if (player != null) {
             player.release();

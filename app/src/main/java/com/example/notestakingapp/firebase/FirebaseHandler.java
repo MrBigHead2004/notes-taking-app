@@ -90,7 +90,7 @@ public class FirebaseHandler {
 			public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 				DatabaseHandler.deleteAllFirebaseData(context);
 				sharedViewModel.notifyDataChanged();
-				Toast.makeText(context, "Upload successfully", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(context, "Upload successfully", Toast.LENGTH_SHORT).show();
 			}
 		});
 

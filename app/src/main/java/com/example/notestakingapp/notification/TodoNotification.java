@@ -49,7 +49,7 @@ public class TodoNotification {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, context.getString(R.string.app_name))
                 .setSmallIcon(R.drawable.arrow_down_icon)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(),
-                        R.mipmap.ic_launcher))
+                        R.mipmap.ic_launcher_round))
                 .setContentTitle(title)
                 .setContentText(message)
                 .setContentIntent(pendingIntent)

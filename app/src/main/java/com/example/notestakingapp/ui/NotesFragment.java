@@ -188,6 +188,7 @@ public class NotesFragment extends Fragment {
             public void onChanged(List<NoteDetailsComponent> noteDetailsComponents) {
                 notesAdapter.setNotes(noteDetailsComponents);
                 notesAdapter.notifyDataSetChanged();
+                updateView();
             }
         });
         sharedViewModel.getTagChanged().observe(getViewLifecycleOwner(), isTagChanged -> {

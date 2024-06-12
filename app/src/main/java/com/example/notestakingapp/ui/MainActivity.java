@@ -2,6 +2,7 @@ package com.example.notestakingapp.ui;
 
 import com.example.notestakingapp.authentication.SettingsActivity;
 import com.example.notestakingapp.database.NoteComponent.Tag;
+import com.example.notestakingapp.firebase.FirebaseHandler;
 import com.example.notestakingapp.shared.Item;
 import com.example.notestakingapp.R;
 import com.example.notestakingapp.database.NoteComponent.Note;
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        FirebaseHandler.syncToFirebase(this);
 
         // set theme mode when initialize app
         sharedThemePreferences = getSharedPreferences("Theme", Context.MODE_PRIVATE);

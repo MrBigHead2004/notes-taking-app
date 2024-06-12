@@ -80,4 +80,5 @@
     <string name="all">All</string>
     <string name="today">Today</string>
     <string name="yesterday">Yesterday</string>
+    <string name="crash_note" translatable="false">Crash Note</string>
 </resources>
