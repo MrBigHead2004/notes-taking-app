@@ -576,7 +576,6 @@ public class NoteEditActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        FirebaseHandler.syncToFirebase(this);
         titleText = NoteDetailsAdapter.title;
         if (player != null) {
             player.release();

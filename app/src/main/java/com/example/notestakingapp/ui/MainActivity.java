@@ -106,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        FirebaseHandler.syncToFirebase(this);
 
         // set theme mode when initialize app
         sharedThemePreferences = getSharedPreferences("Theme", Context.MODE_PRIVATE);
